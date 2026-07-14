@@ -3,3 +3,8 @@
 - Install Tailwind CSS (CSS Framework)
 - Install Daisy UI (daisyUI is a component library built on top of Tailwind CSS )
 - Add Navbar Component to App.jsx
+- Create a Navbar.jsx separate component file
+- Insatlled react-router-dom
+- Create BrowserRouter > Routes > Route =/Body > RouteChildren
+- Create an Outlet in your Body Component
+- Create Footer Component
