@@ -1,0 +1,5 @@
+- Created a Vite + React Project
+- Removed the unnecessary code and files like app.css and  created a Hello World app
+- Install Tailwind CSS (CSS Framework)
+- Install Daisy UI (daisyUI is a component library built on top of Tailwind CSS )
+- Add Navbar Component to App.jsx
