@@ -20,3 +20,7 @@
 - Login and see if data is coming or not in the store
 - Navbar should show user profile as soon as user logs in
 - Refactor our code to add constants file + create components folder
+
+- When we refresh the page we are being logged out, even if token is present, handle this 
+- You should not be able to access other routes without login if token is not present, redirect user to login page
+- 
