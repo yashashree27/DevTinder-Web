@@ -25,4 +25,6 @@
 - You should not be able to access other routes without login if token is not present, redirect user to login page
 
 - Logout feature
-- Pofile
+
+- Get the feed and add the feed in the store
+- build the user card in the feed section
