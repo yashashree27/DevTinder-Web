@@ -23,4 +23,6 @@
 
 - When we refresh the page we are being logged out, even if token is present, handle this 
 - You should not be able to access other routes without login if token is not present, redirect user to login page
-- 
+
+- Logout feature
+- Pofile
