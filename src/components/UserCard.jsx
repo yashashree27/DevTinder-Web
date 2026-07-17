@@ -1,8 +1,8 @@
 import React from 'react';
 
-const UserFeed = ({ feed }) => {
+const UserCard = ({ feed }) => {
 
-    const { firstName, lastName, photoUrl, about } = feed;
+    const { firstName, lastName, photoUrl, about, age, gender } = feed;
 
     return (
         <div>
@@ -16,6 +16,7 @@ const UserFeed = ({ feed }) => {
                 <div className="card-body">
                     <h2 className="card-title">{firstName + " " + lastName}</h2>
                     <p>{about}</p>
+                    <p>{age + ", " + gender}</p>
                     <div className="card-actions justify-center m-4 gap-4">
                         <button className="btn btn-primary">Ignore</button>
                         <button className="btn btn-secondary">Interested</button>
@@ -26,4 +27,4 @@ const UserFeed = ({ feed }) => {
     )
 }
 
-export default UserFeed
+export default UserCard

@@ -28,3 +28,8 @@
 
 - Get the feed and add the feed in the store
 - build the user card in the feed section
+
+- Edit Profile page
+- Show Toast message on save of profile
+- Add dropdwon for male, femlae, others instaed of typing
+
