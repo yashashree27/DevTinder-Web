@@ -38,3 +38,5 @@
 - See my request received page
 - Accept, Reject Request feature
 
+- Send connection request functionality(Ignored/Interested)
+
