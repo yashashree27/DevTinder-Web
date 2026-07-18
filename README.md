@@ -35,3 +35,5 @@
 
 - See all my connections / Connections page
 
+- See my request received page
+
