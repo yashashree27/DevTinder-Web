@@ -33,3 +33,5 @@
 - Show Toast message on save of profile
 - Add dropdwon for male, femlae, others instaed of typing
 
+- See all my connections / Connections page
+
