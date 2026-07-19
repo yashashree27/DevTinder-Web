@@ -40,3 +40,5 @@
 
 - Send connection request functionality(Ignored/Interested)
 
+- do not show pasword when typing
+- build register user page

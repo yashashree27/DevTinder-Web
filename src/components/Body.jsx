@@ -31,12 +31,26 @@ const Body = () => {
     }, []);
 
     return (
-        <div>
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </div>
+        <div className="min-h-screen relative overflow-hidden">
 
+            {/* Background blobs */}
+
+            <div className="fixed w-[500px] h-[500px] bg-purple-500 rounded-full blur-[120px] top-0 left-0 opacity-30"></div>
+
+            <div className="fixed w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px] bottom-0 right-0 opacity-30"></div>
+
+            {/* Actual page content */}
+            <div className="relative z-10">
+
+                <Navbar />
+
+                <Outlet />
+
+                <Footer />
+
+            </div>
+
+        </div>
     )
 }
 

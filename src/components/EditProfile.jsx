@@ -16,7 +16,7 @@ const EditProfile = ({ user }) => {
     const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
     const [error, setError] = useState("");
     const [showToast, setShowToast] = useState(false)
-
+    
     const dispatch = useDispatch();
 
     const saveProfile = async () => {
@@ -104,6 +104,7 @@ const EditProfile = ({ user }) => {
                                      value={gender}
                                      onChange={(e) => setGender(e.target.value)}
                                      >
+                                        <option value="">Select Gender</option>
                                         <option>male</option>
                                         <option>female</option>
                                         <option>others</option>
