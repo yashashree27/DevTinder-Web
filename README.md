@@ -42,3 +42,84 @@
 
 - do not show pasword when typing
 - build register user page
+
+
+*Deployment*
+
+- signup on AWS
+- Create EC2 instance
+- launch instance then click on connect and open terminal
+- then write command  chmod 400 <secret>.pem
+-  connect to VM using this command 
+  ssh -i "Devtinder_Yash-secret.pem" ubuntu@ec2-18-225-167-9.us-east-2.compute.amazonaws.com
+- Install node version and check waht version is installed in your local system then install that only on VM
+- Clone your both frontend and backend project
+
+-  FRONTEND
+- went to frontend proj -> cd devTinder-web and did npm install
+- npm run build
+- sudo apt update
+- sudo apt install nginx (using nginx http-server to deploy frontend)
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+- copy code from dist folder to  /var/www/html/ with command sudo scp -r dist/*  /var/www/html
+- Enable port :80 of your instance. (HTTP uses port 80.
+  HTTPS uses port 443.)
+- go run your website on public ip address
+
+
+- BACKEND
+- went to backend proj -> cd devTinder and did npm install
+- in mongo db atlas in network in IP address list add public ip of vm so that vm can access database
+- in vm in security grp add port 4000 (backend running on this port) and save
+- npm run start / npm start
+- now open on browser. http://18.188.10.153:4000  (http://18.188.10.153 - public IP address of ec2 instance and 4000 backend running on this port)
+
+- Install  PM2
+   . npm install pm2 -g (PM2 is a daemon process manager that will help you manage and keep your application online 24/7)
+   . pm2 start npm -- start (Backend is running using the PM2 process manager)
+   . pm2 logs (for logs)
+   . pm2 flush <name> (to clear the logs)
+   . pm2 list 
+   . pm2 stop <name>
+   . pm2 delete <name>
+   . pm2 start npm --name "devtinder-backend" -- start (change name of pm2 process)
+
+  - Nginx config (to map our ip to domain name)
+
+    <!-- Frontend = http://18.188.10.153/
+    Backend = http://18.188.10.153:4000/
+
+    Domain name = devtinder.com => http://18.188.10.153
+
+    Frontend = devtinder.com
+    Backend = devtinder.com:4000 => devtinder.com/api -->
+
+    nginx config : 
+
+    . open the default Nginx config
+      sudo nano /etc/nginx/sites-available/default
+
+    server_name 18.188.10.153;
+
+    location /api/ {
+        proxy_pass http://localhost:4000/;  # Pass the request to the Node.js app
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+   
+   . clict clt x , save and enter
+   . restart nginx ( sudo systemctl restart nginx)
+
+   now frontend running on  http://18.188.10.153 and backend /api
+
+   . modify the BASE_URL in frontend repository to "/api"
+
+
+
+
+
+
