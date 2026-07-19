@@ -62,7 +62,7 @@
 - sudo apt install nginx (using nginx http-server to deploy frontend)
 - sudo systemctl start nginx
 - sudo systemctl enable nginx
-- copy code from dist folder to  /var/www/html/ with command sudo scp -r dist/*  /var/www/html
+- copy code from dist folder to  /var/www/html/ with command ( sudo scp -r dist/*  /var/www/html )
 - Enable port :80 of your instance. (HTTP uses port 80.
   HTTPS uses port 443.)
 - go run your website on public ip address
