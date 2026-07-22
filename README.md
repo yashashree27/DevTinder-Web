@@ -119,7 +119,32 @@
    . modify the BASE_URL in frontend repository to "/api"
 
 
+   # Adding a custom Domain name
+     
+     - purchased domain anme from Godaddy
+     - signup on cloudflare and add the newly careetd domain name
+     - chnage the nameservers on godaddy and point it to cloudflare
+     - wait for sometime till your nameservers are updated
+     - Added  A record with ec2 id address in DNS records with domain name purchased
+       DNS record : A thedevtindery.in  18.225.216.215
+     - enable SSL for website
+
+    # A domain registrar is a company where you buy and manage your domain name (e.g., GoDaddy or Namecheap). A nameserver is a specialized server that tells the internet where your website's files and email records are hosted (e.g., hosting.com). #
 
 
+  # Sending Emails via  AWS SES
+    - Create an IAM usee
+    - give access to AmazonSESFullAccess
+    - Amazon SES: Create an identity
+    - Verify your domain name
+    - Verify an email address
+    - Install AWS SDK - v3 
+    - https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples
+    - Setup SesClient
+    - Access Credentials should be created on IAM  under SecurityCredentials Tab
+    - Add the credentials to the .env file
+    - Write code for SESClient
+    - Write code for sending Email Address
+    - Make the email dynamic by passing more parameters to the run function
 
 
