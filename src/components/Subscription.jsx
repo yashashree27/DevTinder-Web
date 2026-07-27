@@ -6,10 +6,16 @@ const Subscription = () => {
 
     const [isUserPremium, setIsUserPremium] = useState(false);
 
+    console.log("isUserPremium", isUserPremium);
+    
+
     const premiumUser = async () => {
         const res = await axios.get(BASE_URL + "/premium/verify", {
             withCredentials: true
         });
+
+        console.log("resss", res.data);
+        
 
         if (res.data.isPremium) {
             setIsUserPremium(true)
