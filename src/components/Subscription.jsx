@@ -1,7 +1,26 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { useState } from "react";
 
 const Subscription = () => {
+
+    const [isUserPremium, setIsUserPremium] = useState(false);
+
+    const premiumUser = async () => {
+       const  res = await axios.get(BASE_URL + "/premium/verify", {
+        withCredentials: true
+       });
+
+       if(res.data.isUserPremium){
+        setIsUserPremium(true)
+       }
+    };
+
+    useEffect(() => {
+
+        premiumUser();
+       
+    }, [])
 
     const handleBuyClick = async (type) => {
         try {
@@ -30,6 +49,9 @@ const Subscription = () => {
                 theme: {
                     color: "#F37254",
                 },
+                handler: {
+
+                }
             };
 
 
@@ -44,6 +66,7 @@ const Subscription = () => {
     };
 
     return (
+        isUserPremium ? ("You are already Premium User") : (
         <div className="m-10">
             <div className="flex w-full">
                 <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
@@ -85,7 +108,7 @@ const Subscription = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </div>)
     );
 };
 
