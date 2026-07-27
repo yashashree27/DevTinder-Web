@@ -7,6 +7,9 @@ import { store } from './utils/appStore'
 import Feed from './components/Feed'
 import Connections from './components/Connections'
 import Requests from './components/Requests'
+import TermsOfUse from './components/TermsOfUse'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import Subscription from './components/Subscription'
 
 function App() {
 
@@ -15,12 +18,15 @@ function App() {
       <Provider store={store}>
         <BrowserRouter basename="/">
           <Routes>
+            <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/connections" element={<Connections/>} />
-              <Route path="/requests" element={<Requests/>} />
+              <Route path="/connections" element={<Connections />} />
+              <Route path="/requests" element={<Requests />} />
+              <Route path="/premium" element={<Subscription/>} />
             </Route>
           </Routes>
         </BrowserRouter>
