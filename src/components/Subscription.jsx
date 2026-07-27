@@ -1,25 +1,23 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Subscription = () => {
 
     const [isUserPremium, setIsUserPremium] = useState(false);
 
     const premiumUser = async () => {
-       const  res = await axios.get(BASE_URL + "/premium/verify", {
-        withCredentials: true
-       });
+        const res = await axios.get(BASE_URL + "/premium/verify", {
+            withCredentials: true
+        });
 
-       if(res.data.isUserPremium){
-        setIsUserPremium(true)
-       }
+        if (res.data.isPremium) {
+            setIsUserPremium(true)
+        }
     };
 
     useEffect(() => {
-
         premiumUser();
-       
     }, [])
 
     const handleBuyClick = async (type) => {
@@ -49,12 +47,8 @@ const Subscription = () => {
                 theme: {
                     color: "#F37254",
                 },
-                handler: {
-
-                }
+                handler: premiumUser,
             };
-
-
 
             const rzp = new window.Razorpay(options);
 
@@ -66,49 +60,50 @@ const Subscription = () => {
     };
 
     return (
-        isUserPremium ? ("You are already Premium User") : (
-        <div className="m-10">
-            <div className="flex w-full">
-                <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
-                    <h1 className="font-bold text-2xl">Silver Membership</h1>
+        isUserPremium ? (
+            <div className="text-3xl font-bold text-center m-20"><p>You are already Premium User</p></div>) : (
+            <div className="m-10">
+                <div className="flex w-full">
+                    <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
+                        <h1 className="font-bold text-2xl">Silver Membership</h1>
 
-                    <ul>
-                        <li>- Chat with other people</li>
-                        <li>- 100 connection requests per day</li>
-                        <li>- Blue tick</li>
-                        <li>- 3 months</li>
-                    </ul>
+                        <ul>
+                            <li>- Chat with other people</li>
+                            <li>- 100 connection requests per day</li>
+                            <li>- Blue tick</li>
+                            <li>- 3 months</li>
+                        </ul>
 
-                    <button
-                        onClick={() => handleBuyClick("silver")}
-                        className="btn btn-primary"
-                    >
-                        Buy Silver
-                    </button>
+                        <button
+                            onClick={() => handleBuyClick("silver")}
+                            className="btn btn-primary"
+                        >
+                            Buy Silver
+                        </button>
+                    </div>
+
+                    <div className="divider divider-horizontal">OR</div>
+
+                    <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
+                        <h1 className="font-bold text-2xl">Gold Membership</h1>
+
+                        <ul>
+                            <li>- Chat with other people</li>
+                            <li>- Unlimited connection requests per day</li>
+                            <li>- Blue tick</li>
+                            <li>- Early access to new features</li>
+                            <li>- 6 months</li>
+                        </ul>
+
+                        <button
+                            onClick={() => handleBuyClick("gold")}
+                            className="btn btn-secondary"
+                        >
+                            Buy Gold
+                        </button>
+                    </div>
                 </div>
-
-                <div className="divider divider-horizontal">OR</div>
-
-                <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">
-                    <h1 className="font-bold text-2xl">Gold Membership</h1>
-
-                    <ul>
-                        <li>- Chat with other people</li>
-                        <li>- Unlimited connection requests per day</li>
-                        <li>- Blue tick</li>
-                        <li>- Early access to new features</li>
-                        <li>- 6 months</li>
-                    </ul>
-
-                    <button
-                        onClick={() => handleBuyClick("gold")}
-                        className="btn btn-secondary"
-                    >
-                        Buy Gold
-                    </button>
-                </div>
-            </div>
-        </div>)
+            </div>)
     );
 };
 
