@@ -22,7 +22,8 @@ function App() {
             <Route path="/terms" element={<TermsOfUse />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/" element={<Body />}>
-              <Route path="/" element={<Feed />} />
+            <Route index element={<Navigate to="/login" replace />} />
+              <Route path="/feed" element={<Feed />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/connections" element={<Connections />} />
