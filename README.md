@@ -174,3 +174,16 @@
 - Ref - https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/#integrate-with-razorpay-payment-gateway
 - Ref - https://razorpay.com/docs/webhooks/validate-test/
 - Ref - https://razorpay.com/docs/webhooks/payloads/payments/
+
+
+
+ # Real-time chat with Websocket(socket.io)
+- Socket.io is  libarary that enables low-latency, bi-directional, event-based communication between client and server
+
+
+1) Import the HTTP module
+(const http = require("http"))
+2) craete http server 
+const server = http.createServer(app);
+3) Import Socket.IO
+const socket = require('socket.io');

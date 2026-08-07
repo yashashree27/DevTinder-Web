@@ -10,6 +10,7 @@ import Requests from './components/Requests'
 import TermsOfUse from './components/TermsOfUse'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Subscription from './components/Subscription'
+import Chat from './components/Chat'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path="/connections" element={<Connections />} />
               <Route path="/requests" element={<Requests />} />
               <Route path="/premium" element={<Subscription/>} />
+              <Route path="/chat/:targetUserId" element={<Chat/>} />
             </Route>
           </Routes>
         </BrowserRouter>
